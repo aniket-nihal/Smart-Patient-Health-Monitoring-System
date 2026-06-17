@@ -1,4 +1,3 @@
-# Smart-Patient-Health-Monitoring-System
 # Smart Patient Health Monitoring System
 
 <div align="center">
