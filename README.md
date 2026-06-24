@@ -1,484 +1,359 @@
+# Smart-Patient-Health-Monitoring-System
+# Smart Patient Health Monitoring System
+
 <div align="center">
 
-<br/>
+![Python](https://img.shields.io/badge/Python-3.11%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Flask](https://img.shields.io/badge/Flask-3.0-000000?style=for-the-badge&logo=flask&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-8.0-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
+![Scikit Learn](https://img.shields.io/badge/Scikit--Learn-ML-F7931E?style=for-the-badge&logo=scikitlearn&logoColor=white)
+![Edge AI](https://img.shields.io/badge/Edge%20AI-Edge%20Impulse-00A67E?style=for-the-badge)
 
-```
-╔══════════════════════════════════════════════════════════════╗
-║                                                              ║
-║        🏥  SMART PATIENT HEALTH MONITORING SYSTEM           ║
-║                   Edge AI · Flask · MySQL                    ║
-║                                                              ║
-╚══════════════════════════════════════════════════════════════╝
-```
+**A full-stack healthcare monitoring platform with edge computing, AI-based health classification, real-time alerts, role-based dashboards, PDF reports, and Edge Impulse external device integration.**
 
-<br/>
-
-[![Python](https://img.shields.io/badge/Python-3.11+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
-[![Flask](https://img.shields.io/badge/Flask-3.0-000000?style=for-the-badge&logo=flask&logoColor=white)](https://flask.palletsprojects.com)
-[![MySQL](https://img.shields.io/badge/MySQL-8.0-4479A1?style=for-the-badge&logo=mysql&logoColor=white)](https://mysql.com)
-[![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-ML-F7931E?style=for-the-badge&logo=scikitlearn&logoColor=white)](https://scikit-learn.org)
-[![Edge AI](https://img.shields.io/badge/Edge%20AI-Edge%20Impulse-00A67E?style=for-the-badge)](https://edgeimpulse.com)
-[![License](https://img.shields.io/badge/License-Academic-purple?style=for-the-badge)](LICENSE)
-
-<br/>
-
-> **A full-stack healthcare monitoring platform** combining edge computing, on-device AI inference,  
-> real-time doctor alerts, role-based dashboards, PDF reports, and ESP32/Arduino integration.
-
-<br/>
-
-**Developed by Aniket Nihal · 2026**
-
----
+Developed by **Aniket Nihal** | 2026
 
 </div>
 
-## 📋 Table of Contents
+---
 
-| | Section |
+## Table of Contents
+
+- [Overview](#overview)
+- [Key Features](#key-features)
+- [Architecture Diagram](#architecture-diagram)
+- [Workflow](#workflow)
+- [Technology Stack](#technology-stack)
+- [Project Structure](#project-structure)
+- [Database Design](#database-design)
+- [Installation and Setup](#installation-and-setup)
+- [Demo Login Credentials](#demo-login-credentials)
+- [Edge Impulse Integration](#edge-impulse-integration)
+- [API Endpoint](#api-endpoint)
+- [Seminar Deliverables](#seminar-deliverables)
+- [Testing](#testing)
+- [Future Scope](#future-scope)
+
+---
+
+## Overview
+
+The **Smart Patient Health Monitoring System** is a healthcare web application designed to monitor patient vitals such as heart rate, body temperature, oxygen level, blood pressure, and glucose level.
+
+The system uses:
+
+- **Flask** for backend logic and routing
+- **MySQL** for persistent data storage
+- **Scikit-learn Random Forest model** for health status prediction
+- **Edge computing module** for local preprocessing and simulated sensor readings
+- **Edge Impulse integration** for real external devices such as ESP32 or Arduino
+- **Doctor alerts** for warning and critical health conditions
+- **PDF reports** for health history and presentation use
+
+Health readings are classified into:
+
+| Status | Meaning |
 |---|---|
-| 🔭 | [Overview](#-overview) |
-| ✨ | [Key Features](#-key-features) |
-| 🏗️ | [Full Architecture](#-full-architecture) |
-| 🔄 | [System Workflow](#-system-workflow) |
-| 🗄️ | [Database Design](#-database-design) |
-| 🤖 | [AI & Edge Intelligence](#-ai--edge-intelligence) |
-| 🛠️ | [Technology Stack](#-technology-stack) |
-| 📁 | [Project Structure](#-project-structure) |
-| 🚀 | [Installation & Setup](#-installation--setup) |
-| 🔌 | [Edge Impulse Integration](#-edge-impulse-integration) |
-| 📡 | [API Reference](#-api-reference) |
-| 🧪 | [Testing](#-testing) |
-| 🔮 | [Future Scope](#-future-scope) |
+| `Normal` | Patient vitals are within safe range |
+| `Warning` | Vitals need doctor attention |
+| `Critical` | Immediate medical attention may be required |
 
 ---
 
-## 🔭 Overview
+## Key Features
 
-The **Smart Patient Health Monitoring System** is a full-stack healthcare web application that monitors patient vitals in real time using **edge AI**, a **server-side ML model**, and **role-based dashboards** for patients, doctors, and admins.
-
-```
-Vitals Monitored:  Heart Rate · Body Temperature · SpO₂ · Blood Pressure · Glucose
-```
-
-### Health Classification
-
-| Status | Color | Meaning |
-|---|---|---|
-| ✅ `Normal` | 🟢 Green | Patient vitals are within safe range |
-| ⚠️ `Warning` | 🟡 Yellow | Vitals need doctor attention |
-| 🚨 `Critical` | 🔴 Red | Immediate medical attention required |
-
----
-
-## ✨ Key Features
-
-<table>
-<tr>
-<td width="50%">
-
-**🔐 Authentication & Security**
-- Patient · Doctor · Admin roles
-- bcrypt password hashing
-- Flask session management
-- `.env` credential isolation
-- Edge device token auth
-
-</td>
-<td width="50%">
-
-**📊 Dashboards**
-- Patient: vitals, history, charts, alerts
-- Doctor: assigned patients, active alerts
-- Admin: user management, system stats
-- Real-time health status display
-
-</td>
-</tr>
-<tr>
-<td width="50%">
-
-**🤖 AI Prediction**
-- Random Forest classifier (Scikit-learn)
-- On-device Edge Impulse inference
-- Rule-based safety override layer
-- Most-critical-status-wins combiner
-
-</td>
-<td width="50%">
-
-**📡 Edge Computing**
-- Sensor simulation & buffering
-- Noise filtering & aggregation
-- ESP32 / Arduino ready API
-- Demo mode without hardware
-
-</td>
-</tr>
-<tr>
-<td width="50%">
-
-**🔔 Smart Alerts**
-- Auto warning/critical alerts
-- Doctor notification system
-- Email alert utility
-- Alert history tracking
-
-</td>
-<td width="50%">
-
-**📄 Reports**
-- PDF generation with ReportLab
-- Full health history export
-- Seminar-ready deliverables
-- LinkedIn post image export
-
-</td>
-</tr>
-</table>
+| Module | Features |
+|---|---|
+| Authentication | Patient, doctor, and admin login with bcrypt password hashing |
+| Patient Dashboard | Latest health status, vitals, history, charts, alerts |
+| Doctor Dashboard | Assigned patients, active alerts, patient detail view |
+| Admin Dashboard | User management and system statistics |
+| AI Prediction | Health status classification using trained ML model |
+| Edge Processing | Sensor simulation, buffering, aggregation, noise filtering |
+| Edge Impulse API | External device readings through `/api/edge/vitals` |
+| Alerts | Automatic warning and critical alerts for doctors |
+| Reports | Health report generation using ReportLab |
+| Security | Environment-based credentials and edge device token |
 
 ---
 
-## 🏗️ Full Architecture
+## Architecture Diagram
 
-```
-┌─────────────────────────────────────────────────────────────────────┐
-│                          USER LAYER                                  │
-│                                                                      │
-│    ┌─────────────┐      ┌─────────────┐      ┌─────────────┐       │
-│    │   Patient   │      │    Doctor   │      │    Admin    │       │
-│    │  Dashboard  │      │   Alerts    │      │   Control   │       │
-│    └──────┬──────┘      └──────┬──────┘      └──────┬──────┘       │
-└───────────┼─────────────────────┼─────────────────────┼─────────────┘
-            │                     │                     │
-            └─────────────────────┼─────────────────────┘
-                                  │
-                                  ▼
-┌─────────────────────────────────────────────────────────────────────┐
-│                       FLASK APPLICATION LAYER                        │
-│                                                                      │
-│  ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌──────────┐           │
-│  │   Auth   │  │ Patient  │  │  Doctor  │  │  Admin   │           │
-│  │  Routes  │  │  Routes  │  │  Routes  │  │  Routes  │           │
-│  └──────────┘  └──────────┘  └──────────┘  └──────────┘           │
-│                                                    ┌──────────┐     │
-│                                                    │ Edge API │     │
-│                                                    │ /vitals  │     │
-│                                                    └────┬─────┘     │
-└─────────────────────────────────────────────────────────┼───────────┘
-         │                                               │
-         │                        ┌──────────────────────┘
-         │                        │
-         ▼                        ▼
-┌──────────────────┐   ┌──────────────────────────────────────────────┐
-│  EDGE DEVICE     │   │           AI + INTELLIGENCE LAYER             │
-│  LAYER           │   │                                               │
-│                  │   │  ┌─────────────┐    ┌─────────────────────┐  │
-│ ┌──────────────┐ │   │  │  Payload    │    │   Rule Safety       │  │
-│ │Health Sensors│ │   │  │ Normalizer  │───▶│   Check             │  │
-│ │HR · SpO₂    │ │   │  │Field mapping│    │Extreme vitals gate  │  │
-│ │Temp · BP    │ │   │  └──────┬──────┘    └──────────┬──────────┘  │
-│ └──────┬───────┘ │   │         │                       │             │
-│        │         │   │         ▼                       ▼             │
-│ ┌──────▼───────┐ │   │  ┌─────────────┐    ┌──────────────────┐    │
-│ │  ESP32 /     │ │   │  │   Random    │    │  Prediction      │    │
-│ │  Arduino     │─┼──▶│  │   Forest    │───▶│  Combiner        │    │
-│ └──────┬───────┘ │   │  │  Classifier │    │ Most serious     │    │
-│        │         │   │  │health_model │    │    wins          │    │
-│ ┌──────▼───────┐ │   │  │    .pkl     │    └──────────────────┘    │
-│ │Edge Impulse  │─┼──▶│  └─────────────┘                            │
-│ │Normal/Warn/  │ │   │                                               │
-│ │Critical label│ │   └───────────────────────────────────────────────┘
-│ └──────────────┘ │                         │
-└──────────────────┘                         │
-                                             ▼
-┌─────────────────────────────────────────────────────────────────────┐
-│                        MYSQL DATABASE LAYER                          │
-│                                                                      │
-│  ┌──────────┐  ┌──────────┐  ┌──────────┐                          │
-│  │  users   │  │ doctors  │  │ patients │                          │
-│  │credentials│  │profile · │  │profile · │                          │
-│  │  roles   │  │specialty │  │doctor_id │                          │
-│  └──────────┘  └──────────┘  └──────────┘                          │
-│                                                                      │
-│  ┌──────────────┐  ┌──────────┐  ┌──────────┐                      │
-│  │health_records│  │  alerts  │  │ reports  │                      │
-│  │vitals+status │  │warn/crit │  │PDF meta  │                      │
-│  │edge · manual │  │doctor_id │  │  data    │                      │
-│  └──────────────┘  └──────────┘  └──────────┘                      │
-└─────────────────────────────────────────────────────────────────────┘
-                                             │
-                                             ▼
-┌─────────────────────────────────────────────────────────────────────┐
-│                    OUTPUT + NOTIFICATION LAYER                        │
-│                                                                      │
-│   ┌──────────────┐  ┌──────────────┐  ┌────────────────────────┐   │
-│   │    Live      │  │    Email     │  │      PDF Reports       │   │
-│   │  Dashboards  │  │    Alerts    │  │  ReportLab · History   │   │
-│   │Patient/Doctor│  │ Warn/Critical│  │  Seminar Deliverables  │   │
-│   │  /Admin      │  │  to Doctor   │  │  LinkedIn Post Image   │   │
-│   └──────────────┘  └──────────────┘  └────────────────────────┘   │
-└─────────────────────────────────────────────────────────────────────┘
+```mermaid
+flowchart TB
+    %% =======================
+    %% User Layer
+    %% =======================
+    subgraph U["User Layer"]
+        P["Patient"]
+        D["Doctor"]
+        A["Admin"]
+    end
+
+    %% =======================
+    %% Device Layer
+    %% =======================
+    subgraph E["Edge Device Layer"]
+        S["Health Sensors<br/>Heart Rate | SpO2 | Temperature"]
+        EI["Edge Impulse Model<br/>Normal | Warning | Critical"]
+        ESP["ESP32 / Arduino Device"]
+    end
+
+    %% =======================
+    %% Application Layer
+    %% =======================
+    subgraph F["Flask Application Layer"]
+        AUTH["Auth Routes<br/>Login | Register | Logout"]
+        PAT["Patient Routes<br/>Dashboard | Records | Reports"]
+        DOC["Doctor Routes<br/>Patients | Alerts | Reports"]
+        ADM["Admin Routes<br/>Users | Statistics"]
+        API["Edge API<br/>/api/edge/vitals"]
+    end
+
+    %% =======================
+    %% Intelligence Layer
+    %% =======================
+    subgraph AI["AI and Edge Processing Layer"]
+        CLEAN["Payload Normalizer<br/>Field Mapping + Validation"]
+        RULE["Rule Safety Check<br/>Extreme Vitals Detection"]
+        ML["Random Forest Classifier<br/>Scikit-learn Model"]
+        MERGE["Prediction Combiner<br/>Most Serious Status Wins"]
+    end
+
+    %% =======================
+    %% Data Layer
+    %% =======================
+    subgraph DB["MySQL Database Layer"]
+        USERS[("users")]
+        DOCTORS[("doctors")]
+        PATIENTS[("patients")]
+        RECORDS[("health_records")]
+        ALERTS[("alerts")]
+        REPORTS[("reports")]
+    end
+
+    %% =======================
+    %% Output Layer
+    %% =======================
+    subgraph O["Output and Notification Layer"]
+        DASH["Live Dashboards"]
+        MAIL["Email Alert Utility"]
+        PDF["PDF Health Reports"]
+        SEM["Seminar Deliverables"]
+    end
+
+    P --> AUTH
+    D --> AUTH
+    A --> AUTH
+
+    AUTH --> PAT
+    AUTH --> DOC
+    AUTH --> ADM
+
+    S --> ESP
+    ESP --> EI
+    EI --> API
+
+    API --> CLEAN
+    CLEAN --> RULE
+    CLEAN --> ML
+    RULE --> MERGE
+    ML --> MERGE
+
+    PAT --> RECORDS
+    DOC --> RECORDS
+    ADM --> USERS
+    MERGE --> RECORDS
+    MERGE --> ALERTS
+
+    USERS --> PATIENTS
+    USERS --> DOCTORS
+    PATIENTS --> RECORDS
+    DOCTORS --> ALERTS
+    RECORDS --> REPORTS
+
+    RECORDS --> DASH
+    ALERTS --> DASH
+    ALERTS --> MAIL
+    REPORTS --> PDF
+    PDF --> SEM
+
+    classDef user fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#0D47A1;
+    classDef edge fill:#E0F7FA,stroke:#00838F,stroke-width:2px,color:#004D40;
+    classDef flask fill:#FFF3E0,stroke:#EF6C00,stroke-width:2px,color:#E65100;
+    classDef ai fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px,color:#4A148C;
+    classDef db fill:#E8F5E9,stroke:#2E7D32,stroke-width:2px,color:#1B5E20;
+    classDef output fill:#FCE4EC,stroke:#C2185B,stroke-width:2px,color:#880E4F;
+
+    class P,D,A user;
+    class S,EI,ESP edge;
+    class AUTH,PAT,DOC,ADM,API flask;
+    class CLEAN,RULE,ML,MERGE ai;
+    class USERS,DOCTORS,PATIENTS,RECORDS,ALERTS,REPORTS db;
+    class DASH,MAIL,PDF,SEM output;
 ```
 
 ---
 
-## 🔄 System Workflow
+## Workflow
 
-```
-  Health Sensor
-       │
-       │  collect HR, SpO₂, Temperature, BP, Glucose
-       ▼
-  ESP32 / Arduino
-       │
-       │  run Edge Impulse model on-device
-       ▼
-  Edge Impulse Label  ──────────────────────────────────────────────┐
-  Normal / Warning / Critical                                        │
-       │                                                             │
-       │  POST /api/edge/vitals  (X-Edge-Token required)            │
-       ▼                                                             │
-  Flask Edge API                                                     │
-       │                                                             │
-       │  validate token + payload                                   │
-       ▼                                                             │
-  Payload Normalizer                                                 │
-       │                                                             │
-       ├──────────────────────────┐                                 │
-       ▼                          ▼                                 │
-  Rule Safety Check         Random Forest ML                       │
-  (extreme vitals)          (health_model.pkl)                     │
-       │                          │                                 │
-       └──────────────────────────┘                                 │
-                      │                                             │
-                      ▼                                             │
-             Prediction Combiner  ◄────────────────────────────────┘
-             Most serious status wins
-                      │
-          ┌───────────┴───────────┐
-          ▼                       ▼
-     Save to DB             Create Alert?
-  health_records            (if Warning
-                            or Critical)
-          │                       │
-          ▼                       ▼
-    Patient history         Doctor dashboard
-    updated                 alert activated
+```mermaid
+sequenceDiagram
+    participant Sensor as Health Sensor
+    participant Edge as ESP32 / Edge Impulse
+    participant API as Flask Edge API
+    participant AI as Server AI Check
+    participant DB as MySQL
+    participant Doctor as Doctor Dashboard
+
+    Sensor->>Edge: Collect HR, SpO2, temperature
+    Edge->>Edge: Predict Normal / Warning / Critical
+    Edge->>API: POST /api/edge/vitals with token
+    API->>API: Validate payload and token
+    API->>AI: Run rule check and ML fallback
+    AI->>API: Return final health status
+    API->>DB: Save health record
+    alt Warning or Critical
+        API->>DB: Create alert
+        DB->>Doctor: Show active alert
+    else Normal
+        DB->>Doctor: Update health history
+    end
 ```
 
 ---
 
-## 🗄️ Database Design
+## Technology Stack
 
-```
-┌──────────────────────────────────────────────────────────────┐
-│                        SCHEMA OVERVIEW                        │
-└──────────────────────────────────────────────────────────────┘
-
-users                          doctors
-──────────────────────         ──────────────────────
-id          INT PK             id            INT PK
-name        VARCHAR            user_id       INT FK → users.id
-email       VARCHAR UNIQUE     specialization VARCHAR
-password    VARCHAR (bcrypt)   license_no    VARCHAR
-role        ENUM(patient,      created_at    TIMESTAMP
-            doctor,admin)
-created_at  TIMESTAMP
-
-patients                       health_records
-──────────────────────         ──────────────────────
-id          INT PK             id            INT PK
-user_id     INT FK → users.id  patient_id    INT FK → patients.id
-doctor_id   INT FK → doctors   heart_rate    FLOAT
-age         INT                spo2          FLOAT
-gender      VARCHAR            temperature   FLOAT
-blood_group VARCHAR            bp_systolic   INT
-created_at  TIMESTAMP          bp_diastolic  INT
-                               glucose       FLOAT
-alerts                         health_status ENUM(Normal,
-──────────────────────                       Warning,Critical)
-id          INT PK             source        ENUM(manual,
-patient_id  INT FK → patients              simulated,edge)
-doctor_id   INT FK → doctors   device_id     VARCHAR
-alert_type  ENUM(Warning,      created_at    TIMESTAMP
-            Critical)
-message     TEXT               reports
-is_read     BOOLEAN            ──────────────────────
-created_at  TIMESTAMP          id            INT PK
-                               patient_id    INT FK → patients
-                               file_path     VARCHAR
-                               created_at    TIMESTAMP
-```
-
-Schema file: `database/schema.sql`
+| Layer | Technology |
+|---|---|
+| Frontend | HTML5, CSS3, JavaScript, Bootstrap 5 |
+| Backend | Python, Flask 3.0 |
+| Database | MySQL 8.0 |
+| Machine Learning | Scikit-learn, Pandas, NumPy, Joblib |
+| Edge AI | Edge Impulse, ESP32/Arduino-ready API |
+| Reports | ReportLab |
+| Security | bcrypt, Flask sessions, `.env` configuration |
+| Deployment | Gunicorn, Procfile |
 
 ---
 
-## 🤖 AI & Edge Intelligence
+## Project Structure
 
-### On-Device — Edge Impulse (ESP32 / Arduino)
-
-```
-Sensors ──▶ Feature Extraction ──▶ Edge Impulse Model ──▶ Label + Confidence
-              (HR, SpO₂, Temp)       (TFLite / EON)          0.0 – 1.0
-```
-
-- Trained and deployed via [Edge Impulse Studio](https://studio.edgeimpulse.com)
-- Runs entirely on the microcontroller — no cloud dependency
-- Returns `{ "label": "Warning", "confidence": 0.91 }`
-
-### Server-Side — Random Forest Classifier
-
-```python
-Features: [heart_rate, spo2, temperature, bp_systolic, bp_diastolic, glucose]
-Model:     RandomForestClassifier (Scikit-learn)
-Output:    Normal | Warning | Critical
-File:      ai/health_model.pkl
-```
-
-### Prediction Combiner Logic
-
-```
-edge_result  = "Warning"    (confidence: 0.91)
-server_result = "Normal"    (ML prediction)
-rule_result   = "Normal"    (no extreme vitals)
-
-Final = max(edge, server, rule) by severity
-Final = "Warning"  ✅
-```
-
-> **The most serious status always wins** — safety is the priority.
-
----
-
-## 🛠️ Technology Stack
-
-| Layer | Technology | Purpose |
-|---|---|---|
-| Frontend | HTML5 · CSS3 · JavaScript · Bootstrap 5 | Responsive dashboards |
-| Backend | Python 3.11+ · Flask 3.0 | Routing · Business logic |
-| Database | MySQL 8.0 | Persistent data storage |
-| ML Model | Scikit-learn · Pandas · NumPy · Joblib | Health classification |
-| Edge AI | Edge Impulse · ESP32 / Arduino | On-device inference |
-| PDF | ReportLab | Health report generation |
-| Security | bcrypt · Flask sessions · `.env` | Auth + credential safety |
-| Deployment | Gunicorn · Procfile | Production server |
-
----
-
-## 📁 Project Structure
-
-```
+```text
 smart_health_monitering/
-│
-├── app.py                          # Application entry point
-├── config.py                       # Config + env loading
-├── requirements.txt
-├── Procfile                        # Gunicorn deployment
-├── .env.example
-│
-├── ai/
-│   ├── train_model.py              # Train Random Forest
-│   ├── predict.py                  # Prediction helper
-│   └── health_model.pkl            # Trained model artifact
-│
-├── database/
-│   └── schema.sql                  # Full DB schema + seed data
-│
-├── edge/
-│   ├── edge_processor.py           # Sensor buffering + aggregation
-│   ├── sensor_simulator.py         # Simulated vitals generator
-│   ├── edge_impulse.py             # Edge Impulse integration
-│   └── send_demo_reading.py        # Hardware-free demo script
-│
-├── models/
-│   ├── user_model.py
-│   ├── patient_model.py
-│   └── doctor_model.py
-│
-├── routes/
-│   ├── auth.py                     # Login · Register · Logout
-│   ├── patient.py                  # Patient dashboard + records
-│   ├── doctor.py                   # Doctor dashboard + alerts
-│   ├── admin.py                    # User management
-│   ├── pdf_report.py               # PDF generation
-│   └── edge_api.py                 # /api/edge/* endpoints
-│
-├── templates/                      # Jinja2 HTML templates
-│   ├── index.html
-│   ├── login.html
-│   ├── register.html
-│   ├── patient_dashboard.html
-│   ├── doctor_dashboard.html
-│   ├── admin_dashboard.html
-│   └── reports.html
-│
-├── static/
-│   ├── css/
-│   └── js/
-│
-├── docs/
-│   ├── EDGE_IMPULSE_SETUP.md
-│   ├── ER_diagram.png
-│   └── DFD.png
-│
-└── seminar_deliverables/
-    ├── SmartHealth_Seminar_Presentation.pptx
-    ├── SmartHealth_Seminar_Presentation.pdf
-    ├── Edge_Impulse_Features_Step_By_Step.pdf
-    └── SmartHealth_LinkedIn_Post_Image.png
+|-- app.py
+|-- config.py
+|-- requirements.txt
+|-- Procfile
+|-- README.md
+|-- .env.example
+|
+|-- ai/
+|   |-- train_model.py
+|   |-- predict.py
+|   |-- health_model.pkl
+|
+|-- database/
+|   |-- schema.sql
+|
+|-- edge/
+|   |-- edge_processor.py
+|   |-- sensor_simulator.py
+|   |-- edge_impulse.py
+|   |-- send_demo_reading.py
+|
+|-- models/
+|   |-- user_model.py
+|   |-- patient_model.py
+|   |-- doctor_model.py
+|
+|-- routes/
+|   |-- auth.py
+|   |-- patient.py
+|   |-- doctor.py
+|   |-- admin.py
+|   |-- pdf_report.py
+|   |-- edge_api.py
+|
+|-- templates/
+|   |-- index.html
+|   |-- login.html
+|   |-- register.html
+|   |-- patient_dashboard.html
+|   |-- doctor_dashboard.html
+|   |-- admin_dashboard.html
+|   |-- reports.html
+|
+|-- static/
+|   |-- css/
+|   |-- js/
+|
+|-- docs/
+|   |-- EDGE_IMPULSE_SETUP.md
+|   |-- ER_diagram.png
+|   |-- DFD.png
+|
+|-- seminar_deliverables/
+|   |-- SmartHealth_Seminar_Presentation.pdf
+|   |-- SmartHealth_Seminar_Presentation.pptx
+|   |-- Edge_Impulse_Features_Step_By_Step.pdf
+|   |-- SmartHealth_LinkedIn_Post_Image.png
 ```
 
 ---
 
-## 🚀 Installation & Setup
+## Database Design
 
-### Prerequisites
+The system uses six core tables:
 
-- Python 3.11+
-- MySQL 8.0
-- pip
+| Table | Purpose |
+|---|---|
+| `users` | Stores login credentials and role information |
+| `doctors` | Stores doctor profile and specialization |
+| `patients` | Stores patient profile and assigned doctor |
+| `health_records` | Stores all manual, simulated, and edge device vitals |
+| `alerts` | Stores warning and critical doctor alerts |
+| `reports` | Stores generated report metadata |
+
+Database schema file:
+
+```text
+database/schema.sql
+```
 
 ---
 
-### Step 1 — Clone the repository
+## Installation and Setup
+
+### 1. Clone the repository
 
 ```bash
 git clone https://github.com/your-username/smart-health-monitoring.git
 cd smart-health-monitoring
 ```
 
-### Step 2 — Create virtual environment
+### 2. Create and activate virtual environment
+
+Windows PowerShell:
 
 ```powershell
-# Windows PowerShell
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 ```
 
-```bash
-# macOS / Linux
-python3 -m venv .venv
-source .venv/bin/activate
-```
+### 3. Install dependencies
 
-### Step 3 — Install dependencies
-
-```bash
+```powershell
 pip install -r requirements.txt
 ```
 
-### Step 4 — Configure environment
+### 4. Create `.env`
 
-```bash
-cp .env.example .env
-```
-
-Edit `.env`:
+Copy `.env.example` to `.env` and update your local values:
 
 ```env
-SECRET_KEY=your-secret-key-here
+SECRET_KEY=change-me
 DB_HOST=localhost
 DB_PORT=3306
 DB_USER=your_mysql_user
@@ -487,94 +362,87 @@ DB_NAME=smart_health_db
 EDGE_DEVICE_TOKEN=smarthealth-edge-demo-token
 ```
 
-### Step 5 — Create database
+### 5. Create MySQL database and tables
 
-```bash
-mysql -u your_mysql_user -p < database/schema.sql
+Run this from the project root:
+
+```powershell
+mysql -u your_mysql_user -p < database\schema.sql
 ```
 
-### Step 6 — Train the ML model
+### 6. Train the ML model if needed
 
-```bash
-python ai/train_model.py
+```powershell
+python ai\train_model.py
 ```
 
-### Step 7 — Run the app
+### 7. Run the Flask app
 
-```bash
+```powershell
 python app.py
 ```
 
-Open → **http://127.0.0.1:5000**
+Open:
+
+```text
+http://127.0.0.1:5000
+```
 
 ---
 
-## 🔑 Demo Login Credentials
+## Demo Login Credentials
+
+Seed data in `database/schema.sql` includes demo users:
 
 | Role | Email | Password |
 |---|---|---|
-| 🛡️ Admin | `admin@smarthealth.com` | `helloworld` |
-| 🩺 Doctor | `doctor@smarthealth.com` | `helloworld` |
-| 🧑 Patient | `patient@smarthealth.com` | `helloworld` |
-
-> Credentials are seeded via `database/schema.sql`
+| Admin | `admin@smarthealth.com` | `helloworld` |
+| Doctor | `doctor@smarthealth.com` | `helloworld` |
+| Patient | `patient@smarthealth.com` | `helloworld` |
 
 ---
 
-## 🔌 Edge Impulse Integration
+## Edge Impulse Integration
+
+This project supports external live monitoring through Edge Impulse-ready devices.
 
 ### Purpose
 
-Edge Impulse deploys a lightweight TFLite/EON model directly onto the ESP32 or Arduino, enabling **on-device health classification** without requiring an internet connection during inference.
+Edge Impulse is used to train and deploy a lightweight ML model on an external device. The device can classify live sensor readings locally and send the prediction to the Flask app.
 
-### Device Flow
+### Device flow
 
-```
-1. Sensors collect HR, SpO₂, Temperature
-2. Edge Impulse model classifies on-device → Normal / Warning / Critical
-3. ESP32 sends JSON + token to POST /api/edge/vitals
-4. Flask validates token and payload
-5. Server runs rule check + ML as safety net
-6. MySQL stores health record
-7. Warning/Critical → doctor alert created
-```
+1. Sensors collect patient vitals.
+2. Edge Impulse model predicts `Normal`, `Warning`, or `Critical`.
+3. ESP32/Arduino sends JSON data to Flask.
+4. Flask validates the request token.
+5. Flask runs server-side safety checks.
+6. MySQL stores the health record.
+7. Warning or critical status creates a doctor alert.
 
-### Setup Guide
+Setup guide:
 
-```
+```text
 docs/EDGE_IMPULSE_SETUP.md
 ```
 
-### Demo Without Hardware
+Demo without hardware:
 
-```bash
-# Normal reading
-python edge/send_demo_reading.py --patient-id 1 --mode normal
-
-# Warning reading
-python edge/send_demo_reading.py --patient-id 1 --mode warning
-
-# Critical reading
-python edge/send_demo_reading.py --patient-id 1 --mode critical
+```powershell
+python edge\send_demo_reading.py --patient-id 1 --mode warning
 ```
 
 ---
 
-## 📡 API Reference
+## API Endpoint
 
-### Health Check
+### Health check
 
 ```http
 GET /api/edge/health
 ```
 
-```json
-{ "status": "ok", "timestamp": "2026-01-01T00:00:00Z" }
-```
-
----
-
-### Send Live Vitals
+### Send live vitals
 
 ```http
 POST /api/edge/vitals
@@ -582,7 +450,7 @@ Content-Type: application/json
 X-Edge-Token: smarthealth-edge-demo-token
 ```
 
-**Request body:**
+Example payload:
 
 ```json
 {
@@ -601,105 +469,57 @@ X-Edge-Token: smarthealth-edge-demo-token
 }
 ```
 
-**Response — success:**
+---
 
-```json
-{
-  "status": "success",
-  "health_status": "Warning",
-  "record_id": 42,
-  "alert_created": true
-}
-```
+## Seminar Deliverables
 
-**Response — error:**
-
-```json
-{
-  "status": "error",
-  "message": "Invalid or missing edge token"
-}
-```
+| File | Description |
+|---|---|
+| `seminar_deliverables/SmartHealth_Seminar_Presentation.pptx` | Main seminar presentation |
+| `seminar_deliverables/SmartHealth_Seminar_Presentation.pdf` | PDF version of presentation |
+| `seminar_deliverables/Edge_Impulse_Features_Step_By_Step.pdf` | Edge Impulse feature explanation |
+| `seminar_deliverables/SmartHealth_LinkedIn_Post_Image.png` | LinkedIn post image |
 
 ---
 
-## 🧪 Testing
+## Testing
 
-### Run test suite
+Run tests after installing `pytest`:
 
-```bash
+```powershell
 pip install pytest
-python -m pytest tests/test_system.py -v
+python -m pytest tests\test_system.py -v
 ```
 
-### Compile verification
+Basic app verification:
 
-```bash
+```powershell
 python -m compileall app.py routes edge models ai tests
 ```
 
-### Manual API test (curl)
+---
 
-```bash
-curl -X POST http://localhost:5000/api/edge/vitals \
-  -H "Content-Type: application/json" \
-  -H "X-Edge-Token: smarthealth-edge-demo-token" \
-  -d '{
-    "patient_id": 1,
-    "device_id": "test-device",
-    "heart_rate": 110,
-    "spo2": 91,
-    "temperature": 39.1,
-    "bp_systolic": 145,
-    "bp_diastolic": 95,
-    "glucose": 180,
-    "edge_impulse": { "label": "Critical", "confidence": 0.97 }
-  }'
-```
+## Future Scope
+
+- Real ESP32 sensor firmware with Edge Impulse classifier
+- Live WebSocket dashboard updates
+- SMS or WhatsApp alert integration
+- Cloud deployment with managed MySQL
+- Doctor appointment scheduling
+- Patient mobile application
+- More clinical features such as ECG and fall detection
 
 ---
 
-## 🔮 Future Scope
-
-| Feature | Description |
-|---|---|
-| 📟 Real ESP32 firmware | Production-ready sensor firmware with Edge Impulse classifier |
-| ⚡ WebSocket dashboards | Live push updates without page refresh |
-| 📱 Mobile app | Patient mobile application (React Native / Flutter) |
-| 💬 SMS / WhatsApp alerts | Multi-channel doctor notification |
-| ☁️ Cloud deployment | Managed MySQL on AWS RDS / GCP Cloud SQL |
-| 📅 Appointment scheduling | Doctor-patient appointment system |
-| 💓 ECG monitoring | Electrocardiogram waveform tracking |
-| 🤸 Fall detection | Accelerometer-based fall alert via edge device |
-| 🧠 Advanced ML | LSTM time-series prediction for trend analysis |
-
----
-
-## 👨‍💻 Author
-
-<div align="center">
+## Author
 
 **Aniket Nihal**
 
-*Smart Patient Health Monitoring System using Edge Computing*  
-*Year: 2026*
-
-</div>
+Project: Smart Patient Health Monitoring System using Edge Computing  
+Year: 2026
 
 ---
 
-## 📄 License
+## License
 
-This project is developed for **academic and learning purposes**.
-
----
-
-<div align="center">
-
-```
-Built with  Flask · Scikit-learn · Edge Impulse · MySQL · ReportLab
-```
-
-⭐ **Star this repo if you found it useful!** ⭐
-
-</div>
+This project is developed for academic and learning purposes.
